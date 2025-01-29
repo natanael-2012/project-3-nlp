@@ -8,7 +8,7 @@ Learning how to process text is a skill required for Data Scientists. In this pr
 
 ## Project Overview
 
-In this repository you will find dataset containing sentences in Spanish and their tags: 0, if the sentences was translated by a Machine, 1, if the sentence was translated by a professional translator. Your goal is to build a classifier that is able to distinguish between the two.
+In this repository you will find a dataset containing sentences in Spanish and their tags: 0 if the sentences was translated by a Machine and 1 if the sentence was translated by a professional translator. Your goal is to build a classifier that is able to distinguish between the two.
 
 ## Guidance
 Like in a real life scenario, you are able to make your own choices and text treatment. Use the techniques you have learned and the common packages to process this data and classify the text.
