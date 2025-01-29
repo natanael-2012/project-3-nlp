@@ -1,6 +1,8 @@
 import re
 from bs4 import BeautifulSoup
 
+from torch.utils.data import Dataset
+
 def clean_text(text):
     # Step 1: Remove inline JavaScript/CSS
     text = re.sub(r'<(script|style).*?>.*?</\1>', '', text, flags=re.DOTALL)
@@ -34,3 +36,22 @@ def clean_text(text):
     # text = text.lower()
 
     return text
+
+
+# Create a custom Dataset class to return a dict for each batch
+class CustomDataset(Dataset):
+    def __init__(self, input_ids, attention_mask, labels):
+        self.input_ids = input_ids
+        self.attention_mask = attention_mask
+        self.labels = labels
+
+    def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, idx):
+        return {
+            'input_ids': self.input_ids[idx],
+            'attention_mask': self.attention_mask[idx],
+            'labels': self.labels[idx]
+        }
+
